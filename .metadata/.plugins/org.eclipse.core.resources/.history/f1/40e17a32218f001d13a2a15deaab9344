@@ -1,0 +1,23 @@
+server.port = 8080
+spring.application.name=accounts
+
+#actuator end point
+management.endpoints.web.exposure.include=*
+
+#database properties
+spring.datasource.url=jdbc:h2:mem:javaexpress
+spring.datasource.username=accounts
+spring.datasource.password=dinesh@123
+spring.jpa.show-sql=true
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+
+spring.jpa.hibernate.ddl-auto=none
+
+#enable h2 console
+spring.h2.console.enabled=true
+
+#eureka.instance.prefer-ip-address=true -->Required when you deploy application in kubernates
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+

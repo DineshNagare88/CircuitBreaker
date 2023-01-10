@@ -1,0 +1,22 @@
+package com.practice.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.practice.models.Customer;
+import com.practice.models.Loans;
+import com.practice.repository.LoanRepository;
+
+@Service
+public class LoanService 
+{
+   private LoanRepository loanRepository;
+	
+	public List<Loans> getAllLoansDetails(Customer customer) 
+	{
+		
+		return null;
+	}
+
+}

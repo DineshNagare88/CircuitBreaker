@@ -1,0 +1,12 @@
+package com.practice.repository;
+
+import java.io.Serializable;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.practice.model.Accounts;
+
+public interface AccountRepository extends CrudRepository<Accounts, Serializable> 
+{
+
+}

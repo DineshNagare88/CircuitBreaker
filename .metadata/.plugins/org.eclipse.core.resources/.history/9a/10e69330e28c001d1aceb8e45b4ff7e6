@@ -1,0 +1,7 @@
+package com.practice.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+public class LoanRepository implements CrudRepository<T, ID> {
+
+}

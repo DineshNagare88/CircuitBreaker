@@ -1,0 +1,52 @@
+package com.practice.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.practice.feignclients.CardsFeignClient;
+import com.practice.model.Account;
+import com.practice.model.Customer;
+import com.practice.response.Cards;
+import com.practice.response.CustomerDetails;
+import com.practice.service.AccountService;
+
+import lombok.extern.slf4j.Slf4j;
+
+@RestController
+@Slf4j
+public class AccountsController {
+	@Autowired
+	private AccountService accountService;
+	
+	@Autowired
+	private CardsFeignClient cardsFeignClient;
+
+	//@PostMapping("myAccount")
+	@GetMapping("myAccount/{id}")
+	public Account fetchAccountDetails(@PathVariable("id") int customerId) {
+		log.info("Account Controller-> fetch AccountsDetails customerId {},{}", customerId);
+		return accountService.fetchAccountDetails(customerId);
+
+	}
+	
+	@PostMapping("/myCustomerDetails/{id}")
+	public CustomerDetails fetchCustomerDetails(@PathVariable("id") int customerId)
+	{
+		//information of accounts
+		//information of cards
+		
+		Account account = accountService.fetchAccountDetails(customer);
+		List<Cards> cards =cardsFeignClient.getCardDetails(customer);
+		
+		CustomerDetails customerDetails = new CustomerDetails();
+		customerDetails.setAccount(account);
+		customerDetails.setCards(cards);
+		return customerDetails;
+	}
+}

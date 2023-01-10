@@ -1,0 +1,8 @@
+package com.practice.feignclients;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient("CardMS")
+public interface cardsFeignClient {
+
+}

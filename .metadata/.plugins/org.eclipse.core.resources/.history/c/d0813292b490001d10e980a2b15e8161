@@ -1,0 +1,7 @@
+spring.application.name=accounts
+spring.config.import=optional:configserver:http://localhost:8888
+spring.profiles.active=dev
+
+#Actuator endponts for circuitbreaker
+management.health.circuitbreakers.enabled=true
+management.endpoint.circuitbreakers.enabled=true

@@ -1,0 +1,14 @@
+server.port = 8080
+spring.application.name=accounts
+
+#actuator end point
+management.endpoints.web.exposure.include=*
+
+#database properties
+spring.datasource.url=jdbc:h2:mem:javaexpress
+spring.datasource.username=accounts
+spring.datasource.password=dinesh@123
+
+#enable h2 console
+spring.h2.console.enabled=true
+

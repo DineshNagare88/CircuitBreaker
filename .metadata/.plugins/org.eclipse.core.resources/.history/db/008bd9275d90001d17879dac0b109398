@@ -1,0 +1,22 @@
+server.port=8090
+spring.application.name=loans
+
+management.endpoints.web.exposure.include=*
+
+## Database properties
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.username=loans
+spring.datasource.password=loans123
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+#spring.jpa.hibernate.ddl-auto=none
+
+#enbale h2 console
+spring.h2.console.enabled=true
+
+#-->Required when you deploy application in kubernates
+eureka.instance.prefer-ip-address=true
+
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka/

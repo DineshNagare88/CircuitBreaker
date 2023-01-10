@@ -1,0 +1,16 @@
+package com.practice.feignclients;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
+
+@FeignClient("cards")
+public interface cardsFeignClient 
+{
+	@PostMapping("/mycards")
+	public List<Cards> getCardDetails(@RequestBody Customer customer)
+}

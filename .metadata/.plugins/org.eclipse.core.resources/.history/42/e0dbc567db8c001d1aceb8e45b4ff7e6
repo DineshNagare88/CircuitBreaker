@@ -1,0 +1,42 @@
+package com.card.controller;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.card.entity.Cards;
+import com.card.entity.Customer;
+import com.card.repositiory.CardRepositiory;
+
+@RestController
+public class CardController {
+	
+	 private static final Logger logger = LoggerFactory.getLogger(CardController.class);
+	 
+		/*
+		 * @Autowired private CardService cardService;
+		 */
+	 @Autowired
+	 private CardRepositiory cardRepositiory;
+	 
+	@PostMapping("/mycards")
+	public List<Cards> getCardDetails(@RequestBody Customer customer){
+		
+		List<Cards> findByCustomerId = cardRepositiory.findByCustomerId(customer.getCustomerId());
+		return findByCustomerId;
+		
+	}
+	 
+	/*
+	 * @GetMapping("/alldata") public Iterable<Cards> getALLCardDetails(){
+	 * logger.info("GetCardDetails() method started in cards Microservice"); return
+	 * cardRepositiory.findAll(); }
+	 */
+	 
+
+}

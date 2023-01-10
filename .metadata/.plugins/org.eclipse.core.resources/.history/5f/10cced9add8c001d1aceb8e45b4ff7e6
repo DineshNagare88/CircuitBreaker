@@ -1,0 +1,16 @@
+server.port=9000
+spring.application.name=CardMS
+
+management.endpoints.web.exposure.include=*
+
+## Database properties
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+#spring.jpa.hibernate.ddl-auto=none
+
+#enbale h2 console
+spring.h2.console.enabled=true
+
